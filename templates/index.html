@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL AI Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Optional for icons -->
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="background-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>ASL Cortex AI</h1>
+        <div class="subtitle">Advanced Neural Sign Language Translation</div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Left Panel: Video Feed -->
+        <div class="video-section">
+            <div class="glass-panel video-container">
+                <div class="status-badge">
+                    <div class="status-dot" id="statusDot"></div>
+                    <span id="statusText">System Idle</span>
+                </div>
+                <!-- Images are served from backend route -->
+                <img id="videoFeed" src="{{ url_for('static', filename='placeholder.png') }}" alt="Camera Feed">
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" onclick="startDetection()">
+                    <span>▶ Start Detection</span>
+                </button>
+                <button class="btn btn-danger" onclick="stopDetection()">
+                    <span>⏹ Stop</span>
+                </button>
+                <button class="btn btn-secondary" onclick="resetApp()">
+                    <span>⟲ Reset Data</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Panel: HUD -->
+        <div class="stats-panel">
+            
+            <!-- Prediction Card -->
+            <div class="glass-panel prediction-card">
+                <div class="label-title">Detected Sign</div>
+                <div class="prediction-text" id="signText">--</div>
+                
+                <div class="confidence-wrapper">
+                    <div class="progress-bg">
+                        <div class="progress-fill" id="confidenceBar"></div>
+                    </div>
+                    <div class="confidence-val" id="confidenceVal">0%</div>
+                </div>
+            </div>
+
+            <!-- Sentence History -->
+            <div class="glass-panel sentence-card">
+                <div class="label-title">Translation History</div>
+                <div id="sentenceOutput">Waiting for input...</div>
+            </div>
+
+            <!-- System Info -->
+            <div class="glass-panel info-card" style="padding: 1rem; font-size: 0.8rem; text-align: center; opacity: 0.8;">
+                <div>Model: <b>LSTM-1662</b></div>
+                <div>Status: <span id="connectionStatus" style="color:#00ff88">Connected</span></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
