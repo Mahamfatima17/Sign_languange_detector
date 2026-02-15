@@ -163,3 +163,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - Built using [MediaPipe](https://mediapipe.dev/) and [Streamlit](https://streamlit.io/).
 - Inspired by various open-source ASL recognition projects.
+
+---
+
+## 📝 Contact
+
+Maham Fatima - mahamfatima17@gmail.com
+
+Project Link: [https://github.com/Mahamfatima17/Sign_languange_detector](https://github.com/Mahamfatima17/Sign_languange_detector)
+
